@@ -3,17 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./output.css" rel="stylesheet">
+    <link href="./dist/output.css" rel="stylesheet">
     <title>Medan Explore</title>
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+   <!-- NAVBAR -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-sm transition-all duration-300" id="navbar">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-3 items-center h-20">
+      
+      <!-- Kolom Kiri -->
+      <div class="flex items-center justify-start">
+        <a href="#home" class="text-2xl font-bold font-serif text-gray-800">
+          Medan Explore
+        </a>
+      </div>
+
+      <!-- Kolom Tengah -->
+      <nav class="hidden md:flex items-center justify-between w-full">
+        <a href="#home" class="text-gray-700 hover:text-emerald-600 font-medium transition-colors duration-200">Home</a>
+        <a href="#destinasi" class="text-gray-700 hover:text-emerald-600 font-medium transition-colors duration-200">Destinasi</a>
+        <a href="#kuliner" class="text-gray-700 hover:text-emerald-600 font-medium transition-colors duration-200">Kuliner</a>
+        <a href="#gallery" class="text-gray-700 hover:text-emerald-600 font-medium transition-colors duration-200">Gallery</a>
+        <a href="#contact" class="px-5 py-2.5 rounded-full bg-emerald-600 text-white font-medium hover:bg-emerald-700 shadow-md hover:shadow-lg transition-all duration-200">Contact</a>
+      </nav>
+
+      <!-- Kolom Kanan -->
+      <div class="md:hidden flex justify-end">
+        <button id="mobile-menu-btn" type="button" class="text-gray-700 hover:text-emerald-600 focus:outline-none p-2" aria-label="Toggle Menu">
+          <svg class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 px-4 pt-2 pb-6 space-y-3 shadow-lg">
+    <a href="#home" class="block py-2 text-gray-700 hover:text-emerald-600 font-medium border-b border-gray-50">Home</a>
+    <a href="#destinasi" class="block py-2 text-gray-700 hover:text-emerald-600 font-medium border-b border-gray-50">Destinasi</a>
+    <a href="#kuliner" class="block py-2 text-gray-700 hover:text-emerald-600 font-medium border-b border-gray-50">Kuliner</a>
+    <a href="#gallery" class="block py-2 text-gray-700 hover:text-emerald-600 font-medium border-b border-gray-50">Gallery</a>
+    <a href="#contact" class="block mt-4 text-center py-2.5 rounded-xl bg-emerald-600 text-white font-medium hover:bg-emerald-700 shadow-md">Contact</a>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section id="home" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-slate-900">
+  
+  <!-- Background -->
+  <div class="absolute inset-0 z-0">
+    <img 
+        id="hero-bg" src="assets/delipark-mall.jpg" alt="Hero Background" class="w-full h-full object-cover transition-opacity duration-1000"
+    >
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-transparent"></div>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white py-12">
+
+    <!-- Judul Utama -->
+    <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-tight mb-6">
+      Explore <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">Medan</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="text-lg sm:text-xl lg:text-2xl text-slate-300 max-w-3xl mx-auto font-light leading-relaxed mb-10">
+        Temukan destinasi wisata, kuliner, dan budaya yang memukau di kota Medan. Jelajahi keindahan alam, sejarah, dan cita rasa lokal yang tak terlupakan.
+    </p>   
+  </div>
+</section>
+
     <main>
         <h1 class="text-3xl font-bold underline">Hello world!</h1>
         <section class="gallery">
@@ -30,5 +92,53 @@
     <footer>
         <p>&copy; 2024 Medan Explore. All rights reserved.</p>
     </footer>
+
+<!-- JAVASCRIPT -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    
+    // Toggle Menu Mobile
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Slideshow Background Hero
+    const heroImages = [
+      'assets/delipark-mall.jpg',
+      'assets/hairos.jpg',
+      'assets/hillpark-sibolangit.jpeg',
+      'assets/istana-maimun.png',
+      'assets/maha-vihara-maitreya.webp',
+      'assets/masjid-raya-almashun.png',
+      'assets/museum-rahmat.jpg',
+      'assets/taman-ahmad-yani.jpg'
+    ];
+
+    const heroBg = document.getElementById('hero-bg');
+    let currentIndex = 0;
+
+    function rotateBackground() {
+      if (!heroBg) return; // Mencegah error jika elemen tidak ditemukan
+      
+      heroBg.classList.add('opacity-0');
+
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % heroImages.length;
+        heroBg.src = heroImages[currentIndex];
+        heroBg.classList.remove('opacity-0');
+      }, 500);
+    }
+
+    if (heroBg) {
+      setInterval(rotateBackground, 4000);
+    }
+
+  });
+</script>
 </body>
 </html>

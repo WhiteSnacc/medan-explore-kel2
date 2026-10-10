@@ -1,1 +1,0 @@
-Medan Explore dari Kelompok 2 Kom C Stambuk 25

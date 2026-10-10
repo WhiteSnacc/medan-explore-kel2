@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kategori dan Filter - Medan Explore</title>
+  <link rel="stylesheet" href="src/output.css">
+</head>
+<body class="bg-stone-50 text-slate-800 font-sans">
+
+  <section id="destinasi" class="max-w-6xl mx-auto px-4 py-14">
+
+    <h2 class="text-3xl font-bold text-emerald-900">Destinasi Wisata</h2>
+    <p class="mt-2 text-slate-600 max-w-prose">
+      Pilih kategori untuk melihat tempat yang sesuai dengan rencana perjalananmu.
+    </p>
+
+    <div id="filter-kategori"
+         class="mt-8 flex flex-wrap gap-2"
+         role="group"
+         aria-label="Filter destinasi berdasarkan kategori">
+
+      <button type="button" data-category="semua" aria-pressed="true"
+              class="filter-btn rounded-full border border-emerald-700 px-5 py-2 text-sm font-medium text-emerald-800 bg-white transition hover:bg-emerald-50 aria-pressed:bg-emerald-700 aria-pressed:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+        Semua
+      </button>
+
+      <button type="button" data-category="sejarah" aria-pressed="false"
+              class="filter-btn rounded-full border border-emerald-700 px-5 py-2 text-sm font-medium text-emerald-800 bg-white transition hover:bg-emerald-50 aria-pressed:bg-emerald-700 aria-pressed:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+        Wisata Sejarah
+      </button>
+
+      <button type="button" data-category="alam" aria-pressed="false"
+              class="filter-btn rounded-full border border-emerald-700 px-5 py-2 text-sm font-medium text-emerald-800 bg-white transition hover:bg-emerald-50 aria-pressed:bg-emerald-700 aria-pressed:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+        Alam
+      </button>
+
+      <button type="button" data-category="rekreasi" aria-pressed="false"
+              class="filter-btn rounded-full border border-emerald-700 px-5 py-2 text-sm font-medium text-emerald-800 bg-white transition hover:bg-emerald-50 aria-pressed:bg-emerald-700 aria-pressed:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+        Rekreasi
+      </button>
+
+      <button type="button" data-category="kuliner" aria-pressed="false"
+              class="filter-btn rounded-full border border-emerald-700 px-5 py-2 text-sm font-medium text-emerald-800 bg-white transition hover:bg-emerald-50 aria-pressed:bg-emerald-700 aria-pressed:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+        Kuliner
+      </button>
+    </div>
+
+    <p id="filter-info" class="mt-4 text-sm text-slate-500" aria-live="polite"></p>
+
+    <div id="destinasi-grid" class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="sejarah">
+        <img src="assets/istana-maimun.png" alt="Istana Maimun" loading="lazy" class="h-44 w-full object-cover">
+        <div class="p-4">
+          <span class="inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800">Wisata Sejarah</span>
+          <h3 class="mt-2 font-semibold">Istana Maimun</h3>
+          <p class="text-sm text-slate-500">Medan Maimun, Kota Medan</p>
+        </div>
+      </article>
+
+      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="sejarah">
+        <img src="assets/masjid-raya-almashun.png" alt="Masjid Raya Al Mashun" loading="lazy" class="h-44 w-full object-cover">
+        <div class="p-4">
+          <span class="inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800">Wisata Sejarah</span>
+          <h3 class="mt-2 font-semibold">Masjid Raya Al Mashun</h3>
+          <p class="text-sm text-slate-500">Medan Kota, Kota Medan</p>
+        </div>
+      </article>
+
+      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="sejarah">
+        <img src="assets/maha-vihara-maitreya.webp" alt="Maha Vihara Maitreya" loading="lazy" class="h-44 w-full object-cover">
+        <div class="p-4">
+          <span class="inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800">Wisata Sejarah</span>
+          <h3 class="mt-2 font-semibold">Maha Vihara Maitreya</h3>
+          <p class="text-sm text-slate-500">Cemara Asri, Deli Serdang</p>
+        </div>
+      </article>
+
+      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="sejarah">
+        <img src="assets/museum-rahmat.jpg" alt="Museum Rahmat" loading="lazy" class="h-44 w-full object-cover">
+        <div class="p-4">
+          <span class="inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800">Wisata Sejarah</span>
+          <h3 class="mt-2 font-semibold">Museum Rahmat</h3>
+          <p class="text-sm text-slate-500">Kota Medan</p>
+        </div>
+      </article>
+
+      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="alam">
+        <img src="assets/hillpark-sibolangit.jpeg" alt="Hillpark Sibolangit" loading="lazy" class="h-44 w-full object-cover">
+        <div class="p-4">
+          <span class="inline-block rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-800">Alam</span>
+          <h3 class="mt-2 font-semibold">Hillpark Sibolangit</h3>
+          <p class="text-sm text-slate-500">Sibolangit, Deli Serdang</p>
+        </div>
+      </article>
+
+      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="rekreasi">
+        <img src="assets/taman-ahmad-yani.jpg" alt="Taman Ahmad Yani" loading="lazy" class="h-44 w-full object-cover">
+        <div class="p-4">
+          <span class="inline-block rounded-full bg-sky-100 px-3 py-1 text-xs font-medium text-sky-800">Rekreasi</span>
+          <h3 class="mt-2 font-semibold">Taman Ahmad Yani</h3>
+          <p class="text-sm text-slate-500">Kesawan, Kota Medan</p>
+        </div>
+      </article>
+
+      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="rekreasi">
+        <img src="assets/hairos.jpg" alt="Hairos Waterpark" loading="lazy" class="h-44 w-full object-cover">
+        <div class="p-4">
+          <span class="inline-block rounded-full bg-sky-100 px-3 py-1 text-xs font-medium text-sky-800">Rekreasi</span>
+          <h3 class="mt-2 font-semibold">Hairos Waterpark</h3>
+          <p class="text-sm text-slate-500">Kota Medan</p>
+        </div>
+      </article>
+
+      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="rekreasi">
+        <img src="assets/delipark-mall.jpg" alt="Delipark Mall" loading="lazy" class="h-44 w-full object-cover">
+        <div class="p-4">
+          <span class="inline-block rounded-full bg-sky-100 px-3 py-1 text-xs font-medium text-sky-800">Rekreasi</span>
+          <h3 class="mt-2 font-semibold">Delipark Mall</h3>
+          <p class="text-sm text-slate-500">Kota Medan</p>
+        </div>
+      </article>
+    </div>
+
+    <p id="filter-kosong" class="hidden mt-10 text-center text-slate-500">
+      Belum ada destinasi di kategori ini. Coba pilih kategori lain.
+    </p>
+  </section>
+
+  <script src="src/kategori.js"></script>
+  <script src="src/filter-kategori.js"></script>
+</body>
+</html>

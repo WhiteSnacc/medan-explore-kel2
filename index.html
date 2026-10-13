@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medan Explore - Top Destination & Validasi Form</title>
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+  <!-- NAVBAR (ringkas) -->
+  <header class="bg-emerald-700 text-white sticky top-0 z-50 shadow">
+    <nav class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="#" class="text-xl font-bold">Medan Explore</a>
+      <ul class="flex gap-4 text-sm md:text-base">
+        <li><a href="#top-destination" class="hover:text-amber-300">Top Destination</a></li>
+        <li><a href="#contact" class="hover:text-amber-300">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ============ BAGIAN 10: TOP DESTINATION ============ -->
+    <section id="top-destination" class="max-w-6xl mx-auto px-4 py-16">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl md:text-4xl font-extrabold text-emerald-800">Top Destination</h2>
+        <p class="mt-2 text-slate-600">Lima destinasi wisata Medan dengan rating tertinggi pilihan wisatawan.</p>
+
+        <div class="mt-5 inline-flex rounded-lg overflow-hidden border border-emerald-600">
+          <button id="sortRating" class="px-4 py-2 bg-emerald-600 text-white text-sm">Rating Tertinggi</button>
+          <button id="sortName" class="px-4 py-2 bg-white text-emerald-700 text-sm">Nama A-Z</button>
+        </div>
+      </div>
+
+      <!-- Card dirender oleh script.js -->
+      <div id="topGrid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+
+    <!-- ============ BAGIAN 14: FORM + VALIDASI ============ -->
+    <section id="contact" class="bg-emerald-50 py-16">
+      <div class="max-w-xl mx-auto px-4">
+        <h2 class="text-3xl font-extrabold text-emerald-800 text-center">Tanya Tentang Destinasi</h2>
+        <p class="text-center text-slate-600 mt-2 mb-8">Isi form berikut, tim kami akan membantu Anda.</p>
+
+        <form id="askForm" novalidate class="bg-white p-6 rounded-2xl shadow space-y-5">
+          <div>
+            <label for="nama" class="block font-semibold mb-1">Nama</label>
+            <input type="text" id="nama" placeholder="Contoh: Putri Ayu"
+                   class="w-full border-2 border-slate-300 rounded-lg px-3 py-2 outline-none focus:border-emerald-500">
+            <p id="namaError" class="text-red-500 text-sm mt-1 hidden"></p>
+          </div>
+
+          <div>
+            <label for="pesan" class="block font-semibold mb-1">Pesan</label>
+            <textarea id="pesan" rows="4" placeholder="Tulis pertanyaan Anda tentang destinasi..."
+                      class="w-full border-2 border-slate-300 rounded-lg px-3 py-2 outline-none focus:border-emerald-500"></textarea>
+            <div class="flex justify-between text-sm mt-1">
+              <p id="pesanError" class="text-red-500 hidden"></p>
+              <p id="counter" class="text-slate-400 ml-auto">0 / 200</p>
+            </div>
+          </div>
+
+          <button type="submit"
+                  class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-2.5 rounded-lg transition">
+            Kirim Pertanyaan
+          </button>
+          <p id="formSuccess" class="hidden text-center text-green-700 bg-green-100 rounded-lg py-2"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-emerald-900 text-emerald-100 text-center py-6 text-sm">
+    &copy; 2026 Medan Explore - UTS Pemrograman Web
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,3 +1,81 @@
+const form = document.getElementById('inquiryForm');
+const nameInput = document.getElementById('name');
+const messageInput = document.getElementById('message');
+const nameError = document.getElementById('nameError');
+const messageError = document.getElementById('messageError');
+const successAlert = document.getElementById('successAlert');
+const submitBtn = document.getElementById('submitBtn');
+const btnText = document.getElementById('btnText');
+const loadingSpinner = document.getElementById('loadingSpinner');
+
+// Validasi real-time: Hilangkan error otomatis saat user mulai mengetik
+nameInput.addEventListener('input', () => {
+    if (nameInput.value.trim() !== '') {
+        nameError.classList.add('hidden');
+        nameInput.classList.remove('border-red-500');
+        nameInput.classList.add('border-emerald-500');
+    }
+});
+
+messageInput.addEventListener('input', () => {
+    if (messageInput.value.trim() !== '') {
+        messageError.classList.add('hidden');
+        messageInput.classList.remove('border-red-500');
+        messageInput.classList.add('border-emerald-500');
+    }
+});
+
+// Event saat form disubmit
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    let isValid = true;
+
+    successAlert.classList.add('hidden');
+
+    // Cek Nama
+    if (nameInput.value.trim() === '') {
+        nameError.classList.remove('hidden');
+        nameInput.classList.remove('border-emerald-500');
+        nameInput.classList.add('border-red-500');
+        isValid = false;
+    }
+
+    // Cek Pesan
+    if (messageInput.value.trim() === '') {
+        messageError.classList.remove('hidden');
+        messageInput.classList.remove('border-emerald-500');
+        messageInput.classList.add('border-red-500');
+        isValid = false;
+    }
+
+    // Kalau lolos validasi, tampilkan efek loading seakan-akan mengirim data
+    if (isValid) {
+        // Ubah tombol jadi status loading
+        btnText.textContent = "Mengirim...";
+        loadingSpinner.classList.remove('hidden');
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+
+        // Simulasi jeda pengiriman 1 detik
+        setTimeout(() => {
+            // Kembalikan tombol ke semula
+            btnText.textContent = "Kirim Pertanyaan";
+            loadingSpinner.classList.add('hidden');
+            submitBtn.disabled = false;
+            submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+
+            // Tampilkan alert sukses & reset form
+            successAlert.classList.remove('hidden');
+            form.reset();
+            
+            // Reset border warna hijau
+            nameInput.classList.remove('border-emerald-500');
+            messageInput.classList.remove('border-emerald-500');
+        }, 1000);
+    }
+});
+
+// ori
 document.addEventListener('DOMContentLoaded', () => {
     
     // Toggle Menu Mobile

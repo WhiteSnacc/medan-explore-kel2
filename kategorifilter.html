@@ -46,7 +46,25 @@
       </button>
     </div>
 
+    <div class="mt-6 max-w-xl">
+        <label for="search-destination"
+              class="mb-2 block text-sm font-semibold text-slate-700">
+            Search Destination
+        </label>
+
+        <input
+            type="search"
+            id="search-destination"
+            placeholder="Cari nama destinasi..."
+            class="w-full rounded-xl border border-slate-300 px-4 py-3
+                  focus:border-emerald-600 focus:outline-none"
+            autocomplete="off"
+        >
+    </div>
+
     <p id="filter-info" class="mt-4 text-sm text-slate-500" aria-live="polite"></p>
+    
+    <p id="filter-kosong" class="hidden mt-4 text-center text-slate-500"></p>
 
     <div id="destinasi-grid" class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
 

@@ -89,13 +89,13 @@
 .content-section:nth-child(even) {
     background: #f0fdf4;
 }
-.content-section h2 {
+.content-section > h2 {
     margin-bottom: 1rem;
     color: #064e3b;
     font-size: 2rem;
     font-weight: 700;
 }
-.content-section p {
+.content-section > p {
     max-width: 42rem;
     margin-inline: auto;
     color: #4b5563;

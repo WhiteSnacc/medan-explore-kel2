@@ -1,3 +1,70 @@
+const KATEGORI = {
+  sejarah: 'Wisata Sejarah',
+  alam: 'Alam',
+  rekreasi: 'Rekreasi',
+  kuliner: 'Kuliner'
+};
+
+function siapkanFilterDestinasi() {
+    const tombol = document.querySelectorAll('.filter-btn');
+    const kartu = document.querySelectorAll('.destinasi-card');
+    const info = document.getElementById('filter-info');
+    const kosong = document.getElementById('filter-kosong');
+    const pencarian = document.getElementById('search-destination');
+    let kategoriAktif = 'semua';
+
+    function terapkanFilter() {
+        const kataKunci = pencarian?.value.trim().toLowerCase() ?? '';
+        let jumlah = 0;
+
+        kartu.forEach(card => {
+            const cocokKategori =
+                kategoriAktif === 'semua' ||
+                card.dataset.category === kategoriAktif;
+            const cocokKataKunci = card.textContent.toLowerCase().includes(kataKunci);
+            const tampil = cocokKategori && cocokKataKunci;
+
+            card.style.display = tampil ? '' : 'none';
+            if (tampil) jumlah++;
+        });
+
+        tombol.forEach(btn => {
+            btn.setAttribute('aria-pressed', String(btn.dataset.category === kategoriAktif));
+        });
+
+        if (info) {
+            const namaKategori = kategoriAktif === 'semua'
+                ? 'semua kategori'
+                : KATEGORI[kategoriAktif] || kategoriAktif;
+            info.textContent = `Menampilkan ${jumlah} destinasi dari ${namaKategori}`;
+        }
+
+        if (kosong) {
+            kosong.textContent = jumlah === 0
+                ? 'Destinasi tidak ditemukan. Coba nama atau kategori lain.'
+                : '';
+            kosong.classList.toggle('hidden', jumlah !== 0);
+        }
+    }
+
+    tombol.forEach(btn => {
+        btn.addEventListener('click', () => {
+            kategoriAktif = btn.dataset.category;
+            terapkanFilter();
+        });
+    });
+
+    pencarian?.addEventListener('input', terapkanFilter);
+    terapkanFilter();
+}
+
+document.querySelectorAll('[data-category]').forEach(el => {
+  const key = el.dataset.category;
+  if (key !== 'semua' && !(key in KATEGORI)) {
+    console.warn(`Kategori tidak dikenal: "${key}". Gunakan salah satu dari: ${Object.keys(KATEGORI).join(', ')}`);
+  }
+});
+// 
 const form = document.getElementById('inquiryForm');
 const nameInput = document.getElementById('name');
 const messageInput = document.getElementById('message');
@@ -230,6 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             nama: "Delipark Mall",
             kategori: "Perbelanjaan & Gaya Hidup",
+            filterCategory: "rekreasi",
             lokasi: "Podomoro City Medan",
             deskripsi: "Mal mewah modern di pusat kota Medan dengan konsep area terbuka hijau dan berbagai jenama ternama.",
             gambar: "assets/delipark-mall.jpg"
@@ -237,6 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             nama: "Hairos Water Park",
             kategori: "Rekreasi & Air",
+            filterCategory: "rekreasi",
             lokasi: "Jl. Jamin Ginting KM. 14.3, Medan",
             deskripsi: "Taman rekreasi air populer yang menawarkan berbagai wahana seluncuran seru dan kolam ombak buatan.",
             gambar: "assets/hairos.jpg"
@@ -244,6 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             nama: "Hillpark Sibolangit",
             kategori: "Hiburan & Keluarga",
+            filterCategory: "rekreasi",
             lokasi: "Sibolangit (Jalur Medan-Berastagi)",
             deskripsi: "Taman bermain tematik terbesar di Sumatera Utara dengan wahana menantang dan udara pegunungan yang sejuk.",
             gambar: "assets/hillpark-sibolangit.jpeg"
@@ -251,6 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             nama: "Istana Maimun",
             kategori: "Sejarah & Budaya",
+            filterCategory: "sejarah",
             lokasi: "Jl. Brigjen Katamso, Medan Maimun",
             deskripsi: "Istana Kesultanan Deli peninggalan sejarah yang memadukan arsitektur Melayu, Islam, Spanyol, India, dan Italia.",
             gambar: "assets/istana-maimun.png"
@@ -258,6 +329,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             nama: "Maha Vihara Maitreya",
             kategori: "Religi & Budaya",
+            filterCategory: "sejarah",
             lokasi: "Komplek Cemara Asri, Medan",
             deskripsi: "Salah satu vihara Buddha terbesar di Indonesia yang megah, tenang, dan menjadi pusat wisata religi serta sosial.",
             gambar: "assets/maha-vihara-maitreya.webp"
@@ -265,6 +337,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             nama: "Masjid Raya Al-Mashun",
             kategori: "Religi & Sejarah",
+            filterCategory: "sejarah",
             lokasi: "Jl. Sisingamangaraja, Medan",
             deskripsi: "Masjid raya bersejarah peninggalan Kesultanan Deli yang dibangun tahun 1906 dengan arsitektur oktagonal khas.",
             gambar: "assets/masjid-raya-almashun.png"
@@ -272,6 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             nama: "Museum Rahmat",
             kategori: "Edukasi & Museum",
+            filterCategory: "sejarah",
             lokasi: "Jl. S. Parman No.309, Medan",
             deskripsi: "Museum margasatwa internasional yang memamerkan ribuan koleksi awetan satwa dunia dalam diorama alam realistis.",
             gambar: "assets/museum-rahmat.jpg"
@@ -279,6 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             nama: "Taman Ahmad Yani",
             kategori: "Taman & Rekreasi",
+            filterCategory: "alam",
             lokasi: "Jl. Jend. Sudirman, Medan",
             deskripsi: "Ruang terbuka hijau publik di pusat kota yang asri dan rindang, ideal untuk berolahraga dan bersantai.",
             gambar: "assets/taman-ahmad-yani.jpg"
@@ -286,13 +361,15 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             nama: "Taman Cadika",
             kategori: "Taman & Rekreasi",
+            filterCategory: "alam",
             lokasi: "Jl. Karya Wisata, Medan Johor",
             deskripsi: "Kawasan hijau publik yang dilengkapi danau buatan, jembatan gantung, serta area rekreasi keluarga.",
-            gambar: "assets/taman-candika.jpg"
+            gambar: "assets/Taman-candika.jpg"
         },
         {
             nama: "Tjong A Fie Mansion",
             kategori: "Sejarah & Museum",
+            filterCategory: "sejarah",
             lokasi: "Jl. Jend. Ahmad Yani (Kesawan), Medan",
             deskripsi: "Rumah besar bersejarah milik saudagar Tionghoa dermawan abad ke-19 dengan arsitektur perpaduan Tionghoa-Eropa.",
             gambar: "assets/Tjong-A-Fie-Mansion.jpg"
@@ -302,8 +379,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const destinasiContainer = document.getElementById('destinasi-container');
     if (destinasiContainer) {
         wisataMedan.forEach(item => {
-            const card = document.createElement('div');
-            card.className = "bg-white rounded-2xl shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-slate-100";
+            const card = document.createElement('article');
+            card.className = "destinasi-card bg-white rounded-2xl shadow-md overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-slate-100";
+            card.dataset.category = item.filterCategory;
             card.innerHTML = `
                 <div class="h-48 overflow-hidden bg-slate-100">
                     <img src="${item.gambar}" alt="${item.nama}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
@@ -317,5 +395,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             destinasiContainer.appendChild(card);
         });
+        siapkanFilterDestinasi();
     }
   });

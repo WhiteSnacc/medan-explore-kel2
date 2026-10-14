@@ -84,14 +84,8 @@
             <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Destinasi Wisata</h2>
             <p class="mt-3 text-lg text-slate-600">Jelajahi beragam tempat menarik di Medan dan sekitarnya, dari landmark kota hingga tujuan rekreasi untuk keluarga.</p>
         </div>
-        
-        <!-- Container untuk card destinasi yang akan diisi oleh script.js -->
-        <div id="destinasi-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-    </div>
-    <!-- Frederico -->
-    <h2 class="text-3xl font-bold text-emerald-900">Destinasi Wisata</h2>
     <p class="mt-2 text-slate-600 max-w-prose">
-      Pilih kategori untuk melihat tempat yang sesuai dengan rencana perjalananmu.
+      Pilih kategori atau cari nama destinasi untuk menemukan tempat yang sesuai dengan rencana perjalananmu.
     </p>
 
     <div id="filter-kategori"
@@ -125,93 +119,27 @@
       </button>
     </div>
 
-    <p id="filter-info" class="mt-4 text-sm text-slate-500" aria-live="polite"></p>
-
-    <div id="destinasi-grid" class="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-
-      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="sejarah">
-        <img src="assets/istana-maimun.png" alt="Istana Maimun" loading="lazy" class="h-44 w-full object-cover">
-        <div class="p-4">
-          <span class="inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800">Wisata Sejarah</span>
-          <h3 class="mt-2 font-semibold">Istana Maimun</h3>
-          <p class="text-sm text-slate-500">Medan Maimun, Kota Medan</p>
-        </div>
-      </article>
-
-      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="sejarah">
-        <img src="assets/masjid-raya-almashun.png" alt="Masjid Raya Al Mashun" loading="lazy" class="h-44 w-full object-cover">
-        <div class="p-4">
-          <span class="inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800">Wisata Sejarah</span>
-          <h3 class="mt-2 font-semibold">Masjid Raya Al Mashun</h3>
-          <p class="text-sm text-slate-500">Medan Kota, Kota Medan</p>
-        </div>
-      </article>
-
-      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="sejarah">
-        <img src="assets/maha-vihara-maitreya.webp" alt="Maha Vihara Maitreya" loading="lazy" class="h-44 w-full object-cover">
-        <div class="p-4">
-          <span class="inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800">Wisata Sejarah</span>
-          <h3 class="mt-2 font-semibold">Maha Vihara Maitreya</h3>
-          <p class="text-sm text-slate-500">Cemara Asri, Deli Serdang</p>
-        </div>
-      </article>
-
-      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="sejarah">
-        <img src="assets/museum-rahmat.jpg" alt="Museum Rahmat" loading="lazy" class="h-44 w-full object-cover">
-        <div class="p-4">
-          <span class="inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800">Wisata Sejarah</span>
-          <h3 class="mt-2 font-semibold">Museum Rahmat</h3>
-          <p class="text-sm text-slate-500">Kota Medan</p>
-        </div>
-      </article>
-
-      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="alam">
-        <img src="assets/hillpark-sibolangit.jpeg" alt="Hillpark Sibolangit" loading="lazy" class="h-44 w-full object-cover">
-        <div class="p-4">
-          <span class="inline-block rounded-full bg-emerald-100 px-3 py-1 text-xs font-medium text-emerald-800">Alam</span>
-          <h3 class="mt-2 font-semibold">Hillpark Sibolangit</h3>
-          <p class="text-sm text-slate-500">Sibolangit, Deli Serdang</p>
-        </div>
-      </article>
-
-      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="rekreasi">
-        <img src="assets/taman-ahmad-yani.jpg" alt="Taman Ahmad Yani" loading="lazy" class="h-44 w-full object-cover">
-        <div class="p-4">
-          <span class="inline-block rounded-full bg-sky-100 px-3 py-1 text-xs font-medium text-sky-800">Rekreasi</span>
-          <h3 class="mt-2 font-semibold">Taman Ahmad Yani</h3>
-          <p class="text-sm text-slate-500">Kesawan, Kota Medan</p>
-        </div>
-      </article>
-
-      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="rekreasi">
-        <img src="assets/hairos.jpg" alt="Hairos Waterpark" loading="lazy" class="h-44 w-full object-cover">
-        <div class="p-4">
-          <span class="inline-block rounded-full bg-sky-100 px-3 py-1 text-xs font-medium text-sky-800">Rekreasi</span>
-          <h3 class="mt-2 font-semibold">Hairos Waterpark</h3>
-          <p class="text-sm text-slate-500">Kota Medan</p>
-        </div>
-      </article>
-
-      <article class="destinasi-card overflow-hidden rounded-xl bg-white shadow" data-category="rekreasi">
-        <img src="assets/delipark-mall.jpg" alt="Delipark Mall" loading="lazy" class="h-44 w-full object-cover">
-        <div class="p-4">
-          <span class="inline-block rounded-full bg-sky-100 px-3 py-1 text-xs font-medium text-sky-800">Rekreasi</span>
-          <h3 class="mt-2 font-semibold">Delipark Mall</h3>
-          <p class="text-sm text-slate-500">Kota Medan</p>
-        </div>
-      </article>
+    <div class="mt-6 max-w-xl">
+      <label for="search-destination" class="mb-2 block text-sm font-semibold text-slate-700">
+        Cari destinasi
+      </label>
+      <input
+        type="search"
+        id="search-destination"
+        placeholder="Cari nama, lokasi, atau deskripsi..."
+        class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-emerald-600 focus:outline-none"
+        autocomplete="off"
+      >
     </div>
 
-    <p id="filter-kosong" class="hidden mt-10 text-center text-slate-500">
-      Belum ada destinasi di kategori ini. Coba pilih kategori lain.
-    </p>
+    <p id="filter-info" class="mt-4 text-sm text-slate-500" aria-live="polite"></p>
+
+    <p id="filter-kosong" class="hidden mt-6 text-center text-slate-500" aria-live="polite"></p>
+    <div id="destinasi-container" class="mt-6 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"></div>
+    </div>
 </section>
 
     <main>
-        <section id="destinasi" class="content-section">
-            <h2>Destinasi Wisata</h2>
-            <p>Jelajahi beragam tempat menarik di Medan dan sekitarnya, dari landmark kota hingga tujuan rekreasi untuk keluarga.</p>
-        </section>
         <section id="kuliner" class="content-section">
             <h2>Kuliner Medan</h2>
             <p>Kenali kekayaan rasa Medan melalui kuliner lokal yang menjadi bagian istimewa dari pengalaman menjelajahi kota ini.</p>
@@ -354,12 +282,10 @@
                 </p>
             </div>
         </div>
-        <p>&copy; 2024 Medan Explore. All rights reserved.</p>
+        <p>&copy; 2026 Medan Explore (Kelompok 2 Kom C). All rights reserved.</p>
     </footer>
 
 <!-- JAVASCRIPT -->
   <script src="./script.js"></script>
-  <script src="./src/kategori.js"></script>
-  <script src="./src/filter-kategori.js"></script>
 </body>
 </html>

@@ -98,6 +98,7 @@ form.addEventListener('submit', function(event) {
     let isValid = true;
 
     successAlert.classList.add('hidden');
+    successAlert.classList.remove('flex');
 
     // Cek Nama
     if (nameInput.value.trim() === '') {
@@ -133,6 +134,7 @@ form.addEventListener('submit', function(event) {
 
             // Tampilkan alert sukses & reset form
             successAlert.classList.remove('hidden');
+            successAlert.classList.add('flex');
             form.reset();
             
             // Reset border warna hijau

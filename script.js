@@ -375,6 +375,30 @@ document.addEventListener('DOMContentLoaded', () => {
             lokasi: "Jl. Jend. Ahmad Yani (Kesawan), Medan",
             deskripsi: "Rumah besar bersejarah milik saudagar Tionghoa dermawan abad ke-19 dengan arsitektur perpaduan Tionghoa-Eropa.",
             gambar: "assets/Tjong-A-Fie-Mansion.jpg"
+        },
+        {
+            nama: "Rumah Makan Sinar Pagi",
+            kategori: "Kuliner · Makanan Berkuah",
+            filterCategory: "kuliner",
+            lokasi: "Kota Medan",
+            deskripsi: "Nikmati soto Medan berkuah santan gurih dengan rempah khas di Rumah Makan Sinar Pagi.",
+            gambar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ4IR32cUgS2TYCKxa7TrmLXtnMIMgDmSHpxI5zNiwLg&s=10"
+        },
+        {
+            nama: "Bika Ambon Zulaikha",
+            kategori: "Kuliner · Kue & Oleh-oleh",
+            filterCategory: "kuliner",
+            lokasi: "Toko oleh-oleh khas Medan",
+            deskripsi: "Kue berpori dengan tekstur kenyal dan aroma pandan, buah tangan populer dari Medan.",
+            gambar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcAKDy0W8p0Uiq1gXN2GeiTSwJDy5tbemG1p12uhV5Yw&s=10"
+        },
+        {
+            nama: "Ucok Durian",
+            kategori: "Kuliner · Buah Khas",
+            filterCategory: "kuliner",
+            lokasi: "Gerai durian di Kota Medan",
+            deskripsi: "Durian bertekstur lembut dan manis legit, favorit wisatawan yang berkunjung ke Medan.",
+            gambar: "https://www.tobawisata.com/wp-content/uploads/2025/11/ucok-durian.jpeg"
         }
     ];
 
@@ -388,11 +412,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="h-48 overflow-hidden bg-slate-100">
                     <img src="${item.gambar}" alt="${item.nama}" class="w-full h-full object-cover transition-transform duration-500 hover:scale-105">
                 </div>
-                <div class="p-6 flex flex-col flex-grow">
+                <div class="p-6 flex flex-col grow">
                     <span class="text-xs font-semibold px-3 py-1 bg-emerald-50 text-emerald-600 rounded-full w-max mb-3">${item.kategori}</span>
                     <h3 class="text-xl font-bold text-slate-900 mb-2">${item.nama}</h3>
                     <p class="text-sm font-medium text-slate-500 mb-3 flex items-center gap-1">📍 ${item.lokasi}</p>
-                    <p class="text-sm text-slate-600 leading-relaxed flex-grow">${item.deskripsi}</p>
+                    <p class="text-sm text-slate-600 leading-relaxed grow">${item.deskripsi}</p>
                 </div>
             `;
             destinasiContainer.appendChild(card);
@@ -400,3 +424,50 @@ document.addEventListener('DOMContentLoaded', () => {
         siapkanFilterDestinasi();
     }
   });
+/* ========== KULINER MEDAN ========== */
+const kuliner = [
+  { nama: "Rumah Makan Sinar Pagi", cari: "Rumah Makan Sinar Pagi Soto Medan", kategori: "Makanan Berkuah", waktu: "Sarapan & Makan Siang",
+    lokasi: "Kota Medan", emoji: "🍲",
+    gambar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ4IR32cUgS2TYCKxa7TrmLXtnMIMgDmSHpxI5zNiwLg&s=10",
+    deskripsi: "Nikmati soto Medan berkuah santan gurih dengan rempah khas di Rumah Makan Sinar Pagi." },
+  { nama: "Bika Ambon Zulaikha", cari: "Bika Ambon Zulaikha", kategori: "Kue & Oleh-oleh", waktu: "Oleh-oleh Wisata",
+    lokasi: "Toko oleh-oleh khas Medan", emoji: "🍰",
+    gambar: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcAKDy0W8p0Uiq1gXN2GeiTSwJDy5tbemG1p12uhV5Yw&s=10",
+    deskripsi: "Kue berpori dengan tekstur kenyal dan aroma pandan, buah tangan paling populer dari Medan." },
+  { nama: "Ucok Durian", cari: "Ucok Durian", kategori: "Buah Khas", waktu: "Malam Hari",
+    lokasi: "Gerai durian di Kota Medan", emoji: "🍈",
+    gambar: "https://www.tobawisata.com/wp-content/uploads/2025/11/ucok-durian.jpeg",
+    deskripsi: "Durian bertekstur lembut dan manis legit, favorit wisatawan yang berkunjung ke Medan." }
+];
+
+const kulinerGrid = document.getElementById("kulinerGrid");
+
+function renderKuliner() {
+  if (!kulinerGrid) return;
+
+  kulinerGrid.innerHTML = kuliner.map((d) => {
+    const linkPeta = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(d.nama + " Medan");
+
+    return `
+      <article class="flex flex-col overflow-hidden rounded-2xl bg-white shadow-md ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-xl">
+        <div class="flex h-48 items-center justify-center overflow-hidden bg-linear-to-br from-orange-200 via-amber-300 to-red-300">
+          ${d.gambar
+            ? `<img src="${d.gambar}" alt="${d.nama}" class="h-full w-full object-cover">`
+            : `<span class="text-7xl" aria-hidden="true">${d.emoji}</span>`}
+        </div>
+        <div class="flex flex-1 flex-col p-6">
+          <span class="mb-3 w-fit rounded-full bg-orange-100 px-3 py-1 text-xs font-semibold text-orange-800">${d.kategori}</span>
+          <h3 class="text-xl font-bold text-slate-900">${d.nama}</h3>
+          <p class="mt-2 text-sm text-slate-500">📍 ${d.lokasi}</p>
+          <p class="mt-4 flex-1 leading-relaxed text-slate-600">${d.deskripsi}</p>
+          <div class="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-4">
+            <span class="text-sm font-medium text-slate-600">🕒 ${d.waktu}</span>
+            <a href="${linkPeta}" target="_blank" rel="noopener noreferrer"
+               class="rounded-full bg-orange-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-orange-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2">Lihat Lokasi</a>
+          </div>
+        </div>
+      </article>`;
+  }).join("");
+}
+
+renderKuliner();

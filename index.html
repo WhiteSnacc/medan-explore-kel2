@@ -80,62 +80,58 @@
 <!-- Destinasi -->
 <section id="destinasi" class="py-20 bg-slate-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Destinasi Wisata</h2>
-            <p class="mt-3 text-lg text-slate-600">Jelajahi beragam tempat menarik di Medan dan sekitarnya, dari landmark kota hingga tujuan rekreasi untuk keluarga.</p>
-        </div>
-    <p class="mt-2 text-slate-600 max-w-prose">
-      Pilih kategori atau cari nama destinasi untuk menemukan tempat yang sesuai dengan rencana perjalananmu.
-    </p>
+      <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900">Destinasi Wisata</h2>
+          <p class="mt-3 text-lg text-slate-600">Jelajahi beragam tempat menarik di Medan dan sekitarnya, dari landmark kota hingga tujuan rekreasi untuk keluarga.</p>
+      </div>
+      <div id="filter-kategori"
+          class="mt-8 flex flex-wrap gap-2"
+          role="group"
+          aria-label="Filter destinasi berdasarkan kategori">
 
-    <div id="filter-kategori"
-         class="mt-8 flex flex-wrap gap-2"
-         role="group"
-         aria-label="Filter destinasi berdasarkan kategori">
+        <button type="button" data-category="semua" aria-pressed="true"
+                class="filter-btn rounded-full border border-emerald-700 px-5 py-2 text-sm font-medium text-emerald-800 bg-white transition hover:bg-emerald-50 aria-pressed:bg-emerald-700 aria-pressed:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+          Semua
+        </button>
 
-      <button type="button" data-category="semua" aria-pressed="true"
-              class="filter-btn rounded-full border border-emerald-700 px-5 py-2 text-sm font-medium text-emerald-800 bg-white transition hover:bg-emerald-50 aria-pressed:bg-emerald-700 aria-pressed:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
-        Semua
-      </button>
+        <button type="button" data-category="sejarah" aria-pressed="false"
+                class="filter-btn rounded-full border border-emerald-700 px-5 py-2 text-sm font-medium text-emerald-800 bg-white transition hover:bg-emerald-50 aria-pressed:bg-emerald-700 aria-pressed:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+          Wisata Sejarah
+        </button>
 
-      <button type="button" data-category="sejarah" aria-pressed="false"
-              class="filter-btn rounded-full border border-emerald-700 px-5 py-2 text-sm font-medium text-emerald-800 bg-white transition hover:bg-emerald-50 aria-pressed:bg-emerald-700 aria-pressed:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
-        Wisata Sejarah
-      </button>
+        <button type="button" data-category="alam" aria-pressed="false"
+                class="filter-btn rounded-full border border-emerald-700 px-5 py-2 text-sm font-medium text-emerald-800 bg-white transition hover:bg-emerald-50 aria-pressed:bg-emerald-700 aria-pressed:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+          Alam
+        </button>
 
-      <button type="button" data-category="alam" aria-pressed="false"
-              class="filter-btn rounded-full border border-emerald-700 px-5 py-2 text-sm font-medium text-emerald-800 bg-white transition hover:bg-emerald-50 aria-pressed:bg-emerald-700 aria-pressed:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
-        Alam
-      </button>
+        <button type="button" data-category="rekreasi" aria-pressed="false"
+                class="filter-btn rounded-full border border-emerald-700 px-5 py-2 text-sm font-medium text-emerald-800 bg-white transition hover:bg-emerald-50 aria-pressed:bg-emerald-700 aria-pressed:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+          Rekreasi
+        </button>
 
-      <button type="button" data-category="rekreasi" aria-pressed="false"
-              class="filter-btn rounded-full border border-emerald-700 px-5 py-2 text-sm font-medium text-emerald-800 bg-white transition hover:bg-emerald-50 aria-pressed:bg-emerald-700 aria-pressed:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
-        Rekreasi
-      </button>
+        <button type="button" data-category="kuliner" aria-pressed="false"
+                class="filter-btn rounded-full border border-emerald-700 px-5 py-2 text-sm font-medium text-emerald-800 bg-white transition hover:bg-emerald-50 aria-pressed:bg-emerald-700 aria-pressed:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
+          Kuliner
+        </button>
+      </div>
 
-      <button type="button" data-category="kuliner" aria-pressed="false"
-              class="filter-btn rounded-full border border-emerald-700 px-5 py-2 text-sm font-medium text-emerald-800 bg-white transition hover:bg-emerald-50 aria-pressed:bg-emerald-700 aria-pressed:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2">
-        Kuliner
-      </button>
-    </div>
+      <div class="mt-6 max-w-xl">
+        <label for="search-destination" class="mb-2 block text-sm font-semibold text-slate-700">
+          Cari destinasi
+        </label>
+        <input
+          type="search"
+          id="search-destination"
+          placeholder="Cari nama, lokasi, atau deskripsi..."
+          class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-emerald-600 focus:outline-none"
+          autocomplete="off"
+        >
+      </div>
 
-    <div class="mt-6 max-w-xl">
-      <label for="search-destination" class="mb-2 block text-sm font-semibold text-slate-700">
-        Cari destinasi
-      </label>
-      <input
-        type="search"
-        id="search-destination"
-        placeholder="Cari nama, lokasi, atau deskripsi..."
-        class="w-full rounded-xl border border-slate-300 px-4 py-3 focus:border-emerald-600 focus:outline-none"
-        autocomplete="off"
-      >
-    </div>
+      <p id="filter-info" class="mt-4 text-sm text-slate-500" aria-live="polite"></p>
 
-    <p id="filter-info" class="mt-4 text-sm text-slate-500" aria-live="polite"></p>
-
-    <p id="filter-kosong" class="hidden mt-6 text-center text-slate-500" aria-live="polite"></p>
-    <div id="destinasi-container" class="mt-6 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"></div>
+      <p id="filter-kosong" class="hidden mt-6 text-center text-slate-500" aria-live="polite"></p>
+      <div id="destinasi-container" class="mt-6 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"></div>
     </div>
 </section>
 
@@ -143,7 +139,11 @@
         <section id="kuliner" class="content-section">
             <h2>Kuliner Medan</h2>
             <p>Kenali kekayaan rasa Medan melalui kuliner lokal yang menjadi bagian istimewa dari pengalaman menjelajahi kota ini.</p>
+            <div id="kulinerGrid" class="mt-10 grid w-full grid-cols-1 gap-6 text-left sm:grid-cols-2 lg:grid-cols-3">
+                <!-- Kartu kuliner dirender oleh script.js -->
+            </div>
         </section>
+
         <section id="gallery" class="gallery" aria-labelledby="gallery-title">
           <h2 id="gallery-title">Galeri</h2>
           <figure class="gallery-card">
@@ -167,8 +167,8 @@
             <figcaption class="gallery-caption">Maha Vihara Maitreya</figcaption>
           </figure>
           <figure class="gallery-card">
-            <img class="gallery-item" src="assets/masjid-raya-almashun.png" alt="Masjid Raya Almashun">
-            <figcaption class="gallery-caption">Masjid Raya Almashun</figcaption>
+            <img class="gallery-item" src="assets/masjid-raya-almashun.png" alt="Masjid Raya Al-Mashun">
+            <figcaption class="gallery-caption">Masjid Raya Al-Mashun</figcaption>
           </figure>
           <figure class="gallery-card">
             <img class="gallery-item" src="assets/museum-rahmat.jpg" alt="Museum Rahmat">
@@ -177,6 +177,26 @@
           <figure class="gallery-card">
             <img class="gallery-item" src="assets/taman-ahmad-yani.jpg" alt="Taman Ahmad Yani">
             <figcaption class="gallery-caption">Taman Ahmad Yani</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img class="gallery-item" src="assets/Taman-candika.jpg" alt="Taman Cadika">
+            <figcaption class="gallery-caption">Taman Cadika</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img class="gallery-item" src="assets/Tjong-A-Fie-Mansion.jpg" alt="Tjong A Fie Mansion">
+            <figcaption class="gallery-caption">Tjong A Fie Mansion</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img class="gallery-item" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQ4IR32cUgS2TYCKxa7TrmLXtnMIMgDmSHpxI5zNiwLg&amp;s=10" alt="Rumah Makan Sinar Pagi">
+            <figcaption class="gallery-caption">Rumah Makan Sinar Pagi</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img class="gallery-item" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcAKDy0W8p0Uiq1gXN2GeiTSwJDy5tbemG1p12uhV5Yw&amp;s=10" alt="Bika Ambon Zulaikha">
+            <figcaption class="gallery-caption">Bika Ambon Zulaikha</figcaption>
+          </figure>
+          <figure class="gallery-card">
+            <img class="gallery-item" src="https://www.tobawisata.com/wp-content/uploads/2025/11/ucok-durian.jpeg" alt="Ucok Durian">
+            <figcaption class="gallery-caption">Ucok Durian</figcaption>
           </figure>
         </section>
     </main>
@@ -188,38 +208,51 @@
     <footer id="contact" class="content-section">
         <h2>Kontak</h2>
         <!-- 13 -->
-        <section class="max-w-xl mx-auto bg-white p-8 rounded-2xl shadow-xl border border-gray-100 my-10">
-            <h2 class="text-2xl font-bold text-gray-800 mb-1">Tanya Tentang Destinasi</h2>
-            <p class="text-gray-500 text-sm mb-6">Ada yang bikin penasaran soal tempat wisata di Medan? Tanyakan di sini!</p>
+        <section class="w-full max-w-3xl mx-auto bg-white p-6 sm:p-10 lg:p-12 rounded-2xl shadow-xl border border-gray-100 my-10">
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Tanya Tentang Destinasi</h2>
+            <p class="text-gray-500 text-base mb-8">Ada yang bikin penasaran soal tempat wisata di Medan? Tanyakan di sini!</p>
 
             <!-- Form -->
-            <form id="inquiryForm" class="space-y-4" novalidate>
+            <form id="inquiryForm" class="space-y-6" novalidate>
                 <!-- Input Nama -->
                 <div>
-                    <label for="name" class="block text-sm font-semibold text-gray-700 mb-1">Nama Lengkap</label>
+                    <label for="name" class="block text-left text-sm font-semibold text-gray-700 mb-1">Nama Lengkap</label>
                     <input type="text" id="name" name="name" placeholder="cth: Rio Ganda" 
-                          class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none transition-all duration-200">
+                          class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none transition-all duration-200">
                     <p id="nameError" class="text-red-500 text-xs mt-1 hidden font-medium">⚠️ Nama wajib diisi ya!</p>
                 </div>
 
                 <!-- Pilihan Destinasi -->
                 <div>
-                    <label for="destination" class="block text-sm font-semibold text-gray-700 mb-1">Pilih Destinasi</label>
+                    <label for="destination" class="block text-left text-sm font-semibold text-gray-700 mb-1">Pilih Destinasi</label>
                     <select id="destination" name="destination" 
-                            class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none transition-all duration-200 bg-white">
+                            class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none transition-all duration-200 bg-white">
                         <option value="">-- Pilih Destinasi Wisata --</option>
-                        <option value="Istana Maimun">Istana Maimun</option>
-                        <option value="Masjid Raya Al-Mashun">Masjid Raya Al-Mashun</option>
-                        <option value="Danau Toba">Danau Toba</option>
-                        <option value="Tjong A Fie Mansion">Tjong A Fie Mansion</option>
+                        <optgroup label="Destinasi Wisata">
+                            <option value="Delipark Mall">Delipark Mall</option>
+                            <option value="Hairos Water Park">Hairos Water Park</option>
+                            <option value="Hillpark Sibolangit">Hillpark Sibolangit</option>
+                            <option value="Istana Maimun">Istana Maimun</option>
+                            <option value="Maha Vihara Maitreya">Maha Vihara Maitreya</option>
+                            <option value="Masjid Raya Al-Mashun">Masjid Raya Al-Mashun</option>
+                            <option value="Museum Rahmat">Museum Rahmat</option>
+                            <option value="Taman Ahmad Yani">Taman Ahmad Yani</option>
+                            <option value="Taman Cadika">Taman Cadika</option>
+                            <option value="Tjong A Fie Mansion">Tjong A Fie Mansion</option>
+                        </optgroup>
+                        <optgroup label="Kuliner">
+                            <option value="Rumah Makan Sinar Pagi">Rumah Makan Sinar Pagi</option>
+                            <option value="Bika Ambon Zulaikha">Bika Ambon Zulaikha</option>
+                            <option value="Ucok Durian">Ucok Durian</option>
+                        </optgroup>
                     </select>
                 </div>
 
                 <!-- Input Pesan -->
                 <div>
-                    <label for="message" class="block text-sm font-semibold text-gray-700 mb-1">Pesan / Pertanyaan</label>
+                    <label for="message" class="block text-left text-sm font-semibold text-gray-700 mb-1">Pesan / Pertanyaan</label>
                     <textarea id="message" name="message" rows="4" placeholder="Tuliskan pertanyaanmu secara detail..." 
-                              class="w-full px-4 py-2.5 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none transition-all duration-200"></textarea>
+                              class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 focus:outline-none transition-all duration-200"></textarea>
                     <p id="messageError" class="text-red-500 text-xs mt-1 hidden font-medium">⚠️ Pesan tidak boleh kosong!</p>
                 </div>
 
